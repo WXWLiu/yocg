@@ -15,20 +15,20 @@ import lombok.NoArgsConstructor;
 public class User {
     @TableId(value = "u_id", type = IdType.AUTO)
     private int uid;
+    @TableField(value = "u_image")
+    private String uimage;
     @TableField(value = "u_name")
     private String uname;
-    @TableField(value = "u_password")
+    @TableField(value = "u_passward")
     private String upassward;
     @TableField(value = "u_telephone")
     private String utelephone;
     @TableField(value = "u_balance")
     private String ubalance;
-    @TableField(value = "u_brand")
-    private String ubrand;
     @TableField(value = "u_address")
     private String uaddress;
-    @TableField(value = "o_uid")
-    private int o_uid;
     @TableField(value = "u_status")
     private int ustatus;
+    @TableField(value = "description")
+    private String description;
 }

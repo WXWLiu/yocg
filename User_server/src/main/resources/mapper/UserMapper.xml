@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user_server.mapper.UserMapper">
+
+<!--    public List<User> findUserBypwdandtp(User user);-->
+    <select id="findUserBypwdandtp"  resultType="com.user_server.entity.User">
+            select * from yucg.user where u_telephone=#{utelephone} and u_passward=#{upassward}
+    </select>
+<!--    public boolean insertUser(User user);-->
+    <insert id="insertUser" useGeneratedKeys="true">
+        INSERT INTO yucg.user (u_name, u_telephone,u_passward)
+        VALUES (#{uname}, #{utelephone}, #{upassward})
+    </insert>
+
+<!--    public List<User> findUserByuname(User user);-->
+    <select id="findUserByuname" resultType="com.user_server.entity.User">
+        select * from user where u_name=#{uname}
+    </select>
+<!--    public List<User> findUserBytele(User user);-->
+    <select id="findUserBytele" resultType="com.user_server.entity.User">
+        select * from user where u_telephone=#{utelephone}
+    </select>
+
+<!--    public int getfollowcount();-->
+    <select id="getfollowcount" resultType="int">
+        select count(*) from user_love where u_uid=#{uid}
+    </select>
+
+<!--    public int getfanscount(int ouid);-->
+    <select id="getfanscount" resultType="int">
+        select count(*) from user_love where o_uid=#{ouid}
+    </select>
+<!--    public int UpdatefileByid(int uid);-->
+    <update id="updatefileByid" >
+        update user set u_image=#{uimage} where u_id=#{uid}
+    </update>
+<!--    <select id="getImgName">-->
+<!--        select u_image from user-->
+<!--    </select>-->
+    
+    
+</mapper>
